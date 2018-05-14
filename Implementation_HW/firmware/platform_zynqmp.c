@@ -163,6 +163,10 @@ void platform_setup_interrupts(void)
 
 void platform_enable_interrupts()
 {
+    dmb();
+    dsb();
+    isb();
+
 	/*
 	 * Enable non-critical exceptions.
 	 */
@@ -170,6 +174,23 @@ void platform_enable_interrupts()
 	XScuGic_EnableIntr(INTC_DIST_BASE_ADDR, TIMER_IRPT_INTR);
 	XTtcPs_EnableInterrupts(&TimerInstance, XTTCPS_IXR_INTERVAL_MASK);
 	XTtcPs_Start(&TimerInstance);
+	return;
+}
+
+void platform_disable_interrupts()
+{
+	/*
+	 * Disable exceptions.
+	 */
+	Xil_ExceptionDisableMask(XIL_EXCEPTION_IRQ);
+	XScuGic_DisableIntr(INTC_DIST_BASE_ADDR, TIMER_IRPT_INTR);
+	XTtcPs_DisableInterrupts(&TimerInstance, XTTCPS_IXR_INTERVAL_MASK);
+	XTtcPs_Stop(&TimerInstance);
+
+	dmb();
+	dsb();
+	isb();
+
 	return;
 }
 

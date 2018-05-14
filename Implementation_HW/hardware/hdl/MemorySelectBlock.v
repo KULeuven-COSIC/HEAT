@@ -260,7 +260,7 @@ memory2048 ME9(clk1, clk2,
 						
 endmodule
 
-
+/*
 module MemorySelectBlockM6(clk1, clk2,
 								 top_mem_sel, mem_sel_override,
 								 RdQsel, WtQsel, 
@@ -391,7 +391,7 @@ memory2048 ME9(clk1, clk2,
 						);
 				
 endmodule
-
+*/
 
 
 

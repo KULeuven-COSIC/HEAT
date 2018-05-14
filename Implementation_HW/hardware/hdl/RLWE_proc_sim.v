@@ -303,17 +303,23 @@ assign MemW1 = wtM1;
 assign rst_lift = (instruction==8'd5 || instruction==8'd6 || instruction==8'd7) ? 1'b0 : 1'b1;
 
 
-lift_control_single_core    LC(	clk, rst_lift, instruction, MemR0, MemR1, MemW0, MemW1, 
-												processor_sel_lift, memory_sel_lift, bram_address_lift, bram_we_lift,
-												lift_data_in, lift_data_out,
-												done_lift
-											);
+//lift_control_single_core    LC(	clk, rst_lift, instruction, MemR0, MemR1, MemW0, MemW1, 
+//												processor_sel_lift, memory_sel_lift, bram_address_lift, bram_we_lift,
+//												lift_data_in, lift_data_out,
+//												done_lift
+//											);
 
 //lift_control_parallel_cores	LC(	clk, rst_lift, instruction, MemR0, MemR1, MemW0, MemW1, 
 //												processor_sel_lift, memory_sel_lift, bram_address_lift, bram_we_lift,
 //												lift_data_in, lift_data_out,
 //												done_lift
 //											);
+
+lift_control_parallel_cores4 LC(	clk, rst_lift, instruction, MemR0, MemR1, MemW0, MemW1, 
+												processor_sel_lift, memory_sel_lift, bram_address_lift, bram_we_lift,
+												lift_data_in, lift_data_out,
+												done_lift
+											);
 
 /*
 wire [3:0] top_mem_sel_new = (rst_lift==1'b0) ? memory_sel_lift : top_mem_sel;

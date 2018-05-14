@@ -43,5 +43,6 @@ void timer_callback();
 #endif
 void platform_setup_timer();
 void platform_enable_interrupts();
+void platform_disable_interrupts();
 #endif
 

@@ -1,36 +1,27 @@
 #include <stdio.h>
-
+#include <inttypes.h>
+#include "xpseudo_asm.h"
 #include "xil_printf.h"
 
+#include "configuration.h"
 #include "code.h"
+#include "data.h"
+#include "performance.h"
+#include "hardware.h"
+#include "homenc.h"
+#include "server.h"
+
 
 // defined by each RAW mode application
 void tcp_fasttmr(void);
 void tcp_slowtmr(void);
 
-extern volatile int TcpFastTmrFlag;
-extern volatile int TcpSlowTmrFlag;
-extern struct netif *echo_netif;
-
 extern volatile uint32_t * core_config;
-
-// 2048 times 60-bit (8-byte) words
-// 4096 times 30-bit (4-byte) words
-#define POLY_LEN 2048
-
-// One transfer is 1024-bytes
-#define DATA_LEN 1024
-
-// All transfers will take 2048 * 8 / 1024 = 16 iterations
-//                         4096 * 4 / 1024 = 16
-#define TX_ITER_COUNT (POLY_LEN * 8 / DATA_LEN)
-
-#define NUM_OF_PROCESSORS 6
 
 uint64_t  polynomial  [NUM_OF_PROCESSORS+1][POLY_LEN];
 
-#include "constants.h"
-#include "input.h"
+extern IN_CIPHERTEXT  in_ct [64];
+extern OUT_CIPHERTEXT out_ct[64];
 
 extern INSTRUCTION code[];
 extern INSTRUCTION code0;
@@ -41,7 +32,6 @@ extern INSTRUCTION code0;
     if(VAL == -1)			 \
         break; 				 \
     printf("%d\n\r",  VAL);
-
 
 void print_polynomial(uint64_t* polynomial)
 {
@@ -60,26 +50,31 @@ void print_polynomial(uint64_t* polynomial)
 
 int main()
 {
-    char key = '0';
+
+	char key = '0';
 
     init_platform();
     init_hardware();
+    init_server();
 
-    printf("Address of rlk is 0x%X \n\r", rlk00);
-    printf("Address of rlk is %lld \n\r", rlk00);
+    start_server();
+
+    arm_v8_timing_init();
 
     while(key != 'e')
     {
         xil_printf(" \n\r"
                    " --------------------------------------\n\r"
                    " 0 - initialize polynomial             \n\r"
-                   " 1 - clear the polynomial              \n\r"
-                   " 2 - print the polynomial              \n\r"
-                   " 3 - send the polynomial               \n\r"
-                   " 4 - read back the polynomial          \n\r"
-                   " 5 - send an instruction               \n\r"
-                   " 6 - print status  				  	   \n\r"
-                   " 7 - execute code  				  	   \n\r"
+                   " 1 - clear polynomial                  \n\r"
+                   " 2 - print polynomial                  \n\r"
+                   " 3 - send polynomial to FPGA           \n\r"
+                   " 4 - read polynomial from FPGA         \n\r"
+                   " 5 - send instruction to FPGA          \n\r"
+                   " 6 - execute code - once      		   \n\r"
+                   " 7 - execute code - infinite           \n\r"
+                   " 8 - 100 multiplications               \n\r"
+                   " 9 - 1000 multiplications              \n\r"                   
                    " \n\r");
 
         scanf("%s", &key);
@@ -93,9 +88,6 @@ int main()
             {
                 for(elem=0; elem<POLY_LEN; elem++)
                 {
-                    //low  = 2 * (elem + POLY_LEN * proc);
-                    //high = 2 * (elem + POLY_LEN * proc) + 20;
-                    
                     // low  = (elem + 2*POLY_LEN * proc);
                     // high = (elem + 2*POLY_LEN * proc) + POLY_LEN;
 
@@ -105,28 +97,15 @@ int main()
                     else if (proc==3) {high=913327902;  low=777893800; }
                     else if (proc==4) {high=203221019;  low=817372628; }
                     else if (proc==5) {high=46769069;   low=462585748; }
-                    else              {high=807999276;  low=741806817; }                  
+                    else              {high=807999276;  low=741806817; }
+
                     polynomial[proc][elem] = low;
                     polynomial[proc][elem] |= (high << 30);
                 }
             }
-           
-            // for(proc=0; proc<NUM_OF_PROCESSORS; proc++)
-            // {
-            //     for(elem=0; elem<POLY_LEN; elem++)
-            //     {
-            //         //low  = 2 * (elem + POLY_LEN * proc);
-            //         //high = 2 * (elem + POLY_LEN * proc) + 20;
-            //         low  = (elem + 2*POLY_LEN * proc);
-            //         high = (elem + 2*POLY_LEN * proc) + POLY_LEN;
-
-            //         polynomial[proc][elem] = low;
-            //         polynomial[proc][elem] |= (high << 30);
-            //     }
-            // }
         }
 
-        if (key == '9')
+        if (key == 'A')
         {
             uint64_t low, high;
             int proc, elem;
@@ -134,10 +113,7 @@ int main()
             {
                 for(elem=0; elem<POLY_LEN; elem++)
                 {
-                    //low  = 2 * (elem + POLY_LEN * proc);
-                    //high = 2 * (elem + POLY_LEN * proc) + 20;
-                    
-                    // low  = (elem + 2*POLY_LEN * proc);
+                   // low  = (elem + 2*POLY_LEN * proc);
                     // high = (elem + 2*POLY_LEN * proc) + POLY_LEN;
 
                     if      (proc==0) {high=1015210041; low=259092531; }
@@ -145,27 +121,13 @@ int main()
                     else if (proc==2) {high=996761720;  low=1035334068;}
                     else if (proc==3) {high=53551254;   low=443265843; }
                     else if (proc==4) {high=660201653;  low=925332786; }
-                    else if (proc==5) {high=656974035;  low=634206127; }  
-                    else              {high=0;          low=0;         }         
+                    else if (proc==5) {high=656974035;  low=634206127; }
+                    else              {high=0;          low=0;         }
 
                     polynomial[proc][elem] = low;
                     polynomial[proc][elem] |= (high << 30);
                 }
             }
-           
-            // for(proc=0; proc<NUM_OF_PROCESSORS; proc++)
-            // {
-            //     for(elem=0; elem<POLY_LEN; elem++)
-            //     {
-            //         //low  = 2 * (elem + POLY_LEN * proc);
-            //         //high = 2 * (elem + POLY_LEN * proc) + 20;
-            //         low  = (elem + 2*POLY_LEN * proc);
-            //         high = (elem + 2*POLY_LEN * proc) + POLY_LEN;
-
-            //         polynomial[proc][elem] = low;
-            //         polynomial[proc][elem] |= (high << 30);
-            //     }
-            // }
         }
 
         if (key == '1')
@@ -256,6 +218,8 @@ int main()
                 READ("Enter wtM0", wtM0);
                 READ("Enter wtM1", wtM1);
 
+                if(instruction == 7) START_TIMING
+
                 send_inst_raw(
                     (uint8_t) instruction,
                     (uint8_t) mod_sel,
@@ -264,141 +228,88 @@ int main()
                     (uint8_t) wtM0,
                     (uint8_t) wtM1);
 
-                while(instruction != 0 && core_config[2] != 1)
-                    xil_printf(".");
+                while(instruction != 0 && core_config[2] != 1);
+                    // xil_printf(".");
+
+                if(instruction == 7) STOP_TIMING
+
+                send_inst(code0);
 
                 xil_printf("Done\n\r\n\r");
             }
         }
 
+        // if (key == '6')
+        // {
+        //     xil_printf("Poly Done        : 0x%08X \n\r", core_config[2]);
+
+        //     xil_printf("Status           : 0x%08X \n\r", core_config[4]);
+        //     xil_printf("Poly Done        : %d\n\r", (core_config[3]&0x00000001) >>  0);
+        //     xil_printf("Poly Eth Intr    : %d\n\r", (core_config[3]&0x00000100) >>  8);
+        //     xil_printf("Poly Instruction : %d\n\r", (core_config[3]&0x00FF0000) >> 16);
+        // }
+
         if (key == '6')
         {
-            xil_printf("Poly Done        : 0x%08X \n\r", core_config[2]);
-
-            xil_printf("Status           : 0x%08X \n\r", core_config[4]);
-            xil_printf("Poly Done        : %d\n\r", (core_config[3]&0x00000001) >>  0);
-            xil_printf("Poly Eth Intr    : %d\n\r", (core_config[3]&0x00000100) >>  8);
-            xil_printf("Poly Instruction : %d\n\r", (core_config[3]&0x00FF0000) >> 16);
+            Receive_Inputs_from_PC  ( in_ct,  1);
+            Write_Inputs_to_FPGA    (&in_ct[0] );
+            ExecuteCode             ();
+            Read_Outputs_from_FPGA  (&out_ct[0]);
+            Send_Outputs_to_PC      ( out_ct, 1);
         }
 
         if (key == '7')
         {
-            uint8_t   counter=0;
-            int       line = 0;
-            uint8_t  *buffer;
-            uint16_t  bram_address = 0;
-            int       iter;
-        	int 	  proc;
-
-            uINSTRUCTION uinst;
-
-            uinst.instruction = code[line];
-
-            send_inst(code0);
-
-            // for (line=0; line < CODE_LEN; line++)
-            while(code[line].ins != 255)
+            while(1)
             {
-                uinst.instruction = code[line];
+                Receive_Inputs_from_PC  ( in_ct,  1);
 
-                xil_printf("Code[%d]: 0x%08X \n\r", line, uinst.whole32);
+            platform_disable_interrupts();
+			START_TIMING
 
-                if(code[line].ins == 4)
-                {
-                    if      (code[line].addr1 <  6) 	buffer = (uint8_t*)(rlk00[code[line].proc]);
-                    else if (code[line].addr1 < 12) 	buffer = (uint8_t*)(rlk01[code[line].proc]);
-                    else if (code[line].addr1 < 18) 	buffer = (uint8_t*)(rlk10[code[line].proc]);
-                    else					            buffer = (uint8_t*)(rlk11[code[line].proc]);
-                    
-                    send_inst_raw  (0, 
-                                    0, 
-                                    code[line].addr1 & 0x0F,
-                                   (code[line].addr1 & 0xF0) >> 4,
-                                    code[line].addr2 & 0x0F,
-                                   (code[line].addr2 & 0xF0) >> 4
-                                   );
-                    
-                    for(iter=0; iter<TX_ITER_COUNT; iter++)
-                    {
-                        send_const_data(	bram_address,
-                                            code[line].proc,
-                                            buffer+iter*DATA_LEN,
-                                            DATA_LEN);
+                Write_Inputs_to_FPGA    (&in_ct[0] );
+                ExecuteCode             ();
+                Read_Outputs_from_FPGA  (&out_ct[0]);
+			
+            STOP_TIMING
+            platform_enable_interrupts();
 
-                        bram_address += 128;
-                    }
-                }
-                else if(code[line].ins == 64)
-                {
-                    for(proc=0; proc<NUM_OF_PROCESSORS; proc++)
-                    {
-                        if      ((counter & 0x03) == 0)   buffer = (uint8_t*)(c00[proc]);
-                        else if ((counter & 0x03) == 1)   buffer = (uint8_t*)(c01[proc]);
-                        else if ((counter & 0x03) == 2)   buffer = (uint8_t*)(c10[proc]);
-                        else                              buffer = (uint8_t*)(c11[proc]);
-
-                        xil_printf("Load in 0x%02X\n\r", counter & 0x03);
-
-                        bram_address = 0;
-
-                        for(iter=0; iter<TX_ITER_COUNT; iter++)
-                        {
-                            send_eth_data(	bram_address,
-                                            proc,
-                                            buffer+iter*DATA_LEN,
-                                            DATA_LEN);
-
-                            bram_address += 128;
-                        }
-                    }
-
-                    counter++;
-                }
-                else
-                {
-                   send_inst(code[line]);
-
-                   while((code[line].ins != 0 && code[line].ins != 255) && core_config[2] != 1);
-
-                   send_inst(code0);
-                }
-
-                line++;
+                Send_Outputs_to_PC      ( out_ct, 1);
             }
+        }
 
-            xil_printf("Done\n\r\n\r");
+        if (key == '8')
+        {
+            int i;
+
+            START_TIMING
+            for(i=0; i<100; i++)
+            {
+                Write_Inputs_to_FPGA    (&in_ct[0] );
+                ExecuteCode             ();
+                Read_Outputs_from_FPGA  (&out_ct[0]);
+            }
+            STOP_TIMING
+
+        }
+
+        if (key == '9')
+        {
+            int i;
+
+            START_TIMING
+            for(i=0; i<1000; i++)
+            {
+                Write_Inputs_to_FPGA    (&in_ct[0] );
+                ExecuteCode             ();
+                Read_Outputs_from_FPGA  (&out_ct[0]);
+
+                if((i%10)==0) xil_printf("%d\n\r", i);
+            }
+            STOP_TIMING
+
         }
     }
 
     return 0;
 }
-
-
-
-
-//	xil_printf("\n\n START TEST\n\r");
-//
-//	init_server();
-//
-//	start_server();
-//
-//	init_hardware();
-//
-//	while (1)
-//	{
-//		if (TcpFastTmrFlag)
-//		{
-//			tcp_fasttmr();
-//			TcpFastTmrFlag = 0;
-//		}
-//
-//		if (TcpSlowTmrFlag)
-//		{
-//			tcp_slowtmr();
-//			TcpSlowTmrFlag = 0;
-//		}
-//
-//		xemacif_input(echo_netif);
-//	}
-//
-//	cleanup_platform();

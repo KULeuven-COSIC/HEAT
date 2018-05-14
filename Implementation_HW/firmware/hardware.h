@@ -20,6 +20,8 @@ void send_inst_raw      (uint8_t instruction,
                          uint8_t wtM0,
                          uint8_t wtM1);
 
+void wait_inst_done     (void)   ;
+
 void send_eth_data      (uint32_t bram_address, 
                          uint8_t processor, 
                          uint8_t* data_addr, 
@@ -31,11 +33,6 @@ void recv_eth_data      (uint32_t bram_address,
                          uint32_t data_len);
 
 void send_const_data    (uint32_t bram_address, 
-                         uint8_t processor, 
-                         uint8_t* data_addr, 
-                         uint32_t data_len);
-
-void recv_const_data    (uint32_t bram_address, 
                          uint8_t processor, 
                          uint8_t* data_addr, 
                          uint32_t data_len);

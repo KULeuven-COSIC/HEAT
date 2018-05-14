@@ -44,6 +44,8 @@ wire DONE_RD_8;
 wire SIGN;
 wire CF_INFO_OUT;
 wire sample_CF_INFO_OUT;
+reg CF_INFO_OUT_r;
+reg sample_CF_INFO_OUT_r;
 wire QUOTIENT_READY_for_modq;
 wire QUOTIENT_READY_for_fin_adj;
 wire [117:0] QUOTIENT;
@@ -84,6 +86,12 @@ LIFT_MOD_PART1 LIFT_MOD_PART1_DP				 (clk,
 														  A_PRIME_QJ_READY,
 														  A_PRIME_QJ,
 														  ToD_SAMPLED);	 
+														  
+always @(posedge clk)
+begin
+CF_INFO_OUT_r <= CF_INFO_OUT;
+sample_CF_INFO_OUT_r <= sample_CF_INFO_OUT;
+end														  
 /*														  
 wire [8:0] fake_addres;
 wire [7:0] RAM_BANK_SEL_x_OFFSET;
@@ -158,9 +166,9 @@ red_180bit_q_then_30bit_qi	REDq(.clk(clk), .rst(rst_REDq),
 										  .read_input_data(QUOTIENT), 
 										  .reduction_type(reduction_type),
 										  .input_data_ready(QUOTIENT_READY_for_modq),
-										  .sign_large_red_in(CF_INFO_OUT), 
+										  .sign_large_red_in(CF_INFO_OUT_r), 
 										  .div_start_new(1'b0),
-										  .sample_CF_INFO_OUT(sample_CF_INFO_OUT),
+										  .sample_CF_INFO_OUT(sample_CF_INFO_OUT_r),
 										  
 										  .result(REDq_data), 
 										  .result_write_address(REDq_write_address), 
