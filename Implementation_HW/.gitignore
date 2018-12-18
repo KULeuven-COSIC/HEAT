@@ -1,0 +1,16 @@
+hardware/src/ip/*/*
+!hardware/src/ip/*/*.xci
+!hardware/src/ip/*/*.xml
+
+hardware/src/src_lift_shoup_ip/*/*
+!hardware/src/src_lift_shoup_ip/*/*.xci
+!hardware/src/src_lift_shoup_ip/*/*.xml
+
+firmware/project_sw/
+firmware/.Xil
+
+hardware/project_hw/
+hardware/project_ipcores/
+hardware/ip_repo
+hardware/vivado*
+hardware/.Xil
