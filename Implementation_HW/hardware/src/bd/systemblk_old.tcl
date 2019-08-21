@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# homenc_coprocessor, homenc_coprocessor
+# PROCESSOR_POLY, PROCESSOR_POLY
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -162,8 +162,8 @@ xilinx.com:ip:zynq_ultra_ps_e:3.2\
 set bCheckModules 1
 if { $bCheckModules == 1 } {
    set list_check_mods "\ 
-homenc_coprocessor\
-homenc_coprocessor\
+PROCESSOR_POLY\
+PROCESSOR_POLY\
 "
 
    set list_mods_missing ""
@@ -229,6 +229,28 @@ proc create_root_design { parentCell } {
 
   # Create ports
 
+  # Create instance: PROCESSOR_POLY_0, and set properties
+  set block_name PROCESSOR_POLY
+  set block_cell_name PROCESSOR_POLY_0
+  if { [catch {set PROCESSOR_POLY_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $PROCESSOR_POLY_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: PROCESSOR_POLY_1, and set properties
+  set block_name PROCESSOR_POLY
+  set block_cell_name PROCESSOR_POLY_1
+  if { [catch {set PROCESSOR_POLY_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $PROCESSOR_POLY_1 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: axi_dma_0, and set properties
   set axi_dma_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_0 ]
   set_property -dict [ list \
@@ -278,28 +300,6 @@ proc create_root_design { parentCell } {
    CONFIG.SYNCHRONIZATION_STAGES {2} \
  ] $fifo_low_to_high
 
-  # Create instance: homenc_coprocessor_0, and set properties
-  set block_name homenc_coprocessor
-  set block_cell_name homenc_coprocessor_0
-  if { [catch {set homenc_coprocessor_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $homenc_coprocessor_0 eq "" } {
-     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
-  # Create instance: homenc_coprocessor_1, and set properties
-  set block_name homenc_coprocessor
-  set block_cell_name homenc_coprocessor_1
-  if { [catch {set homenc_coprocessor_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $homenc_coprocessor_1 eq "" } {
-     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
   # Create instance: interconnect_to_csr, and set properties
   set interconnect_to_csr [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 interconnect_to_csr ]
   set_property -dict [ list \
@@ -1782,42 +1782,42 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM1_FPD [get_bd_intf_pins interconnect_to_dma/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
 
   # Create port connections
-  connect_bd_net -net homenc_coprocessor_0_cpu_mem_rd_data [get_bd_pins homenc_coprocessor_0/cpu_mem_rd_data] [get_bd_pins interfacer_0/poly_doutb_eth]
-  connect_bd_net -net homenc_coprocessor_0_done [get_bd_pins homenc_coprocessor_0/done] [get_bd_pins interfacer_0/poly_done]
-  connect_bd_net -net homenc_coprocessor_1_cpu_mem_rd_data [get_bd_pins homenc_coprocessor_1/cpu_mem_rd_data] [get_bd_pins interfacer_1/poly_doutb_eth]
-  connect_bd_net -net homenc_coprocessor_1_done [get_bd_pins homenc_coprocessor_1/done] [get_bd_pins interfacer_1/poly_done]
-  connect_bd_net -net interfacer_0_poly_address_eth [get_bd_pins homenc_coprocessor_0/cpu_mem_addr] [get_bd_pins interfacer_0/poly_address_eth]
-  connect_bd_net -net interfacer_0_poly_dinb_eth [get_bd_pins homenc_coprocessor_0/cpu_mem_wr_data] [get_bd_pins interfacer_0/poly_dinb_eth]
-  connect_bd_net -net interfacer_0_poly_instruction [get_bd_pins homenc_coprocessor_0/instruction] [get_bd_pins interfacer_0/poly_instruction]
-  connect_bd_net -net interfacer_0_poly_interrupt_eth [get_bd_pins homenc_coprocessor_0/cpu_interrupt] [get_bd_pins interfacer_0/poly_interrupt_eth]
-  connect_bd_net -net interfacer_0_poly_modulus_sel [get_bd_pins homenc_coprocessor_0/modulus_sel] [get_bd_pins interfacer_0/poly_modulus_sel]
-  connect_bd_net -net interfacer_0_poly_processor_sel [get_bd_pins homenc_coprocessor_0/cpu_mb_sel] [get_bd_pins interfacer_0/poly_processor_sel]
-  connect_bd_net -net interfacer_0_poly_rdM0 [get_bd_pins homenc_coprocessor_0/rdM0] [get_bd_pins interfacer_0/poly_rdM0]
-  connect_bd_net -net interfacer_0_poly_rdM1 [get_bd_pins homenc_coprocessor_0/rdM1] [get_bd_pins interfacer_0/poly_rdM1]
-  connect_bd_net -net interfacer_0_poly_select_all [get_bd_pins homenc_coprocessor_0/cpu_interrupt_all] [get_bd_pins interfacer_0/poly_select_all]
-  connect_bd_net -net interfacer_0_poly_top_mem_sel [get_bd_pins homenc_coprocessor_0/cpu_mem_sel] [get_bd_pins interfacer_0/poly_top_mem_sel]
-  connect_bd_net -net interfacer_0_poly_web_eth [get_bd_pins homenc_coprocessor_0/cpu_mem_wr_en] [get_bd_pins interfacer_0/poly_web_eth]
-  connect_bd_net -net interfacer_0_poly_wtM0 [get_bd_pins homenc_coprocessor_0/wtM0] [get_bd_pins interfacer_0/poly_wtM0]
-  connect_bd_net -net interfacer_0_poly_wtM1 [get_bd_pins homenc_coprocessor_0/wtM1] [get_bd_pins interfacer_0/poly_wtM1]
-  connect_bd_net -net interfacer_1_poly_address_eth [get_bd_pins homenc_coprocessor_1/cpu_mem_addr] [get_bd_pins interfacer_1/poly_address_eth]
-  connect_bd_net -net interfacer_1_poly_dinb_eth [get_bd_pins homenc_coprocessor_1/cpu_mem_wr_data] [get_bd_pins interfacer_1/poly_dinb_eth]
-  connect_bd_net -net interfacer_1_poly_instruction [get_bd_pins homenc_coprocessor_1/instruction] [get_bd_pins interfacer_1/poly_instruction]
-  connect_bd_net -net interfacer_1_poly_interrupt_eth [get_bd_pins homenc_coprocessor_1/cpu_interrupt] [get_bd_pins interfacer_1/poly_interrupt_eth]
-  connect_bd_net -net interfacer_1_poly_modulus_sel [get_bd_pins homenc_coprocessor_1/modulus_sel] [get_bd_pins interfacer_1/poly_modulus_sel]
-  connect_bd_net -net interfacer_1_poly_processor_sel [get_bd_pins homenc_coprocessor_1/cpu_mb_sel] [get_bd_pins interfacer_1/poly_processor_sel]
-  connect_bd_net -net interfacer_1_poly_rdM0 [get_bd_pins homenc_coprocessor_1/rdM0] [get_bd_pins interfacer_1/poly_rdM0]
-  connect_bd_net -net interfacer_1_poly_rdM1 [get_bd_pins homenc_coprocessor_1/rdM1] [get_bd_pins interfacer_1/poly_rdM1]
-  connect_bd_net -net interfacer_1_poly_select_all [get_bd_pins homenc_coprocessor_1/cpu_interrupt_all] [get_bd_pins interfacer_1/poly_select_all]
-  connect_bd_net -net interfacer_1_poly_top_mem_sel [get_bd_pins homenc_coprocessor_1/cpu_mem_sel] [get_bd_pins interfacer_1/poly_top_mem_sel]
-  connect_bd_net -net interfacer_1_poly_web_eth [get_bd_pins homenc_coprocessor_1/cpu_mem_wr_en] [get_bd_pins interfacer_1/poly_web_eth]
-  connect_bd_net -net interfacer_1_poly_wtM0 [get_bd_pins homenc_coprocessor_1/wtM0] [get_bd_pins interfacer_1/poly_wtM0]
-  connect_bd_net -net interfacer_1_poly_wtM1 [get_bd_pins homenc_coprocessor_1/wtM1] [get_bd_pins interfacer_1/poly_wtM1]
+  connect_bd_net -net PROCESSOR_POLY_0_done [get_bd_pins PROCESSOR_POLY_0/done] [get_bd_pins interfacer_0/poly_done]
+  connect_bd_net -net PROCESSOR_POLY_0_doutb_eth [get_bd_pins PROCESSOR_POLY_0/doutb_eth] [get_bd_pins interfacer_0/poly_doutb_eth]
+  connect_bd_net -net PROCESSOR_POLY_1_done [get_bd_pins PROCESSOR_POLY_1/done] [get_bd_pins interfacer_1/poly_done]
+  connect_bd_net -net PROCESSOR_POLY_1_doutb_eth [get_bd_pins PROCESSOR_POLY_1/doutb_eth] [get_bd_pins interfacer_1/poly_doutb_eth]
+  connect_bd_net -net interfacer_0_poly_address_eth [get_bd_pins PROCESSOR_POLY_0/address_eth] [get_bd_pins interfacer_0/poly_address_eth]
+  connect_bd_net -net interfacer_0_poly_dinb_eth [get_bd_pins PROCESSOR_POLY_0/dinb_eth] [get_bd_pins interfacer_0/poly_dinb_eth]
+  connect_bd_net -net interfacer_0_poly_instruction [get_bd_pins PROCESSOR_POLY_0/instruction] [get_bd_pins interfacer_0/poly_instruction]
+  connect_bd_net -net interfacer_0_poly_interrupt_eth [get_bd_pins PROCESSOR_POLY_0/interrupt_eth] [get_bd_pins interfacer_0/poly_interrupt_eth]
+  connect_bd_net -net interfacer_0_poly_modulus_sel [get_bd_pins PROCESSOR_POLY_0/modulus_sel] [get_bd_pins interfacer_0/poly_modulus_sel]
+  connect_bd_net -net interfacer_0_poly_processor_sel [get_bd_pins PROCESSOR_POLY_0/processor_sel] [get_bd_pins interfacer_0/poly_processor_sel]
+  connect_bd_net -net interfacer_0_poly_rdM0 [get_bd_pins PROCESSOR_POLY_0/rdM0] [get_bd_pins interfacer_0/poly_rdM0]
+  connect_bd_net -net interfacer_0_poly_rdM1 [get_bd_pins PROCESSOR_POLY_0/rdM1] [get_bd_pins interfacer_0/poly_rdM1]
+  connect_bd_net -net interfacer_0_poly_select_all [get_bd_pins PROCESSOR_POLY_0/interrupt_eth_all_processors_accessed] [get_bd_pins interfacer_0/poly_select_all]
+  connect_bd_net -net interfacer_0_poly_top_mem_sel [get_bd_pins PROCESSOR_POLY_0/top_mem_sel] [get_bd_pins interfacer_0/poly_top_mem_sel]
+  connect_bd_net -net interfacer_0_poly_web_eth [get_bd_pins PROCESSOR_POLY_0/web_eth] [get_bd_pins interfacer_0/poly_web_eth]
+  connect_bd_net -net interfacer_0_poly_wtM0 [get_bd_pins PROCESSOR_POLY_0/wtM0] [get_bd_pins interfacer_0/poly_wtM0]
+  connect_bd_net -net interfacer_0_poly_wtM1 [get_bd_pins PROCESSOR_POLY_0/wtM1] [get_bd_pins interfacer_0/poly_wtM1]
+  connect_bd_net -net interfacer_1_poly_address_eth [get_bd_pins PROCESSOR_POLY_1/address_eth] [get_bd_pins interfacer_1/poly_address_eth]
+  connect_bd_net -net interfacer_1_poly_dinb_eth [get_bd_pins PROCESSOR_POLY_1/dinb_eth] [get_bd_pins interfacer_1/poly_dinb_eth]
+  connect_bd_net -net interfacer_1_poly_instruction [get_bd_pins PROCESSOR_POLY_1/instruction] [get_bd_pins interfacer_1/poly_instruction]
+  connect_bd_net -net interfacer_1_poly_interrupt_eth [get_bd_pins PROCESSOR_POLY_1/interrupt_eth] [get_bd_pins interfacer_1/poly_interrupt_eth]
+  connect_bd_net -net interfacer_1_poly_modulus_sel [get_bd_pins PROCESSOR_POLY_1/modulus_sel] [get_bd_pins interfacer_1/poly_modulus_sel]
+  connect_bd_net -net interfacer_1_poly_processor_sel [get_bd_pins PROCESSOR_POLY_1/processor_sel] [get_bd_pins interfacer_1/poly_processor_sel]
+  connect_bd_net -net interfacer_1_poly_rdM0 [get_bd_pins PROCESSOR_POLY_1/rdM0] [get_bd_pins interfacer_1/poly_rdM0]
+  connect_bd_net -net interfacer_1_poly_rdM1 [get_bd_pins PROCESSOR_POLY_1/rdM1] [get_bd_pins interfacer_1/poly_rdM1]
+  connect_bd_net -net interfacer_1_poly_select_all [get_bd_pins PROCESSOR_POLY_1/interrupt_eth_all_processors_accessed] [get_bd_pins interfacer_1/poly_select_all]
+  connect_bd_net -net interfacer_1_poly_top_mem_sel [get_bd_pins PROCESSOR_POLY_1/top_mem_sel] [get_bd_pins interfacer_1/poly_top_mem_sel]
+  connect_bd_net -net interfacer_1_poly_web_eth [get_bd_pins PROCESSOR_POLY_1/web_eth] [get_bd_pins interfacer_1/poly_web_eth]
+  connect_bd_net -net interfacer_1_poly_wtM0 [get_bd_pins PROCESSOR_POLY_1/wtM0] [get_bd_pins interfacer_1/poly_wtM0]
+  connect_bd_net -net interfacer_1_poly_wtM1 [get_bd_pins PROCESSOR_POLY_1/wtM1] [get_bd_pins interfacer_1/poly_wtM1]
   connect_bd_net -net rst_ps8_0_299M_interconnect_aresetn [get_bd_pins fifo_high_to_low/s_axis_aresetn] [get_bd_pins interconnect_to_dma/ARESETN] [get_bd_pins interconnect_to_mem/ARESETN] [get_bd_pins rst_ps8_0_299M/interconnect_aresetn]
   connect_bd_net -net rst_ps8_0_299M_peripheral_aresetn [get_bd_pins axi_dma_0/axi_resetn] [get_bd_pins interconnect_to_csr/S00_ARESETN] [get_bd_pins interconnect_to_dma/M00_ARESETN] [get_bd_pins interconnect_to_dma/S00_ARESETN] [get_bd_pins interconnect_to_mem/M00_ARESETN] [get_bd_pins interconnect_to_mem/S00_ARESETN] [get_bd_pins interconnect_to_mem/S01_ARESETN] [get_bd_pins rst_ps8_0_299M/peripheral_aresetn]
   connect_bd_net -net rst_ps8_0_99M_interconnect_aresetn [get_bd_pins axis_interconnect_0/ARESETN] [get_bd_pins axis_interconnect_1/ARESETN] [get_bd_pins fifo_low_to_high/s_axis_aresetn] [get_bd_pins interconnect_to_csr/ARESETN] [get_bd_pins rst_ps8_0_99M/interconnect_aresetn]
   connect_bd_net -net rst_ps8_0_99M_peripheral_aresetn [get_bd_pins axis_interconnect_0/M00_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/M01_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S00_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S_AXI_CTRL_ARESETN] [get_bd_pins axis_interconnect_1/M00_AXIS_ARESETN] [get_bd_pins axis_interconnect_1/S00_AXIS_ARESETN] [get_bd_pins axis_interconnect_1/S01_AXIS_ARESETN] [get_bd_pins axis_interconnect_1/S_AXI_CTRL_ARESETN] [get_bd_pins interconnect_to_csr/M00_ARESETN] [get_bd_pins interconnect_to_csr/M01_ARESETN] [get_bd_pins interconnect_to_csr/M02_ARESETN] [get_bd_pins interconnect_to_csr/M03_ARESETN] [get_bd_pins interconnect_to_csr/M04_ARESETN] [get_bd_pins interconnect_to_csr/M05_ARESETN] [get_bd_pins interfacer_0/m00_axis_aresetn] [get_bd_pins interfacer_0/s00_axi_aresetn] [get_bd_pins interfacer_0/s00_axis_aresetn] [get_bd_pins interfacer_1/m00_axis_aresetn] [get_bd_pins interfacer_1/s00_axi_aresetn] [get_bd_pins interfacer_1/s00_axis_aresetn] [get_bd_pins mutex_0/S0_AXI_ARESETN] [get_bd_pins mutex_0/S1_AXI_ARESETN] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins axis_interconnect_1/S00_ARB_REQ_SUPPRESS] [get_bd_pins axis_interconnect_1/S01_ARB_REQ_SUPPRESS] [get_bd_pins xlconstant_0/dout]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins axis_interconnect_0/ACLK] [get_bd_pins axis_interconnect_0/M00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/M01_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S_AXI_CTRL_ACLK] [get_bd_pins axis_interconnect_1/ACLK] [get_bd_pins axis_interconnect_1/M00_AXIS_ACLK] [get_bd_pins axis_interconnect_1/S00_AXIS_ACLK] [get_bd_pins axis_interconnect_1/S01_AXIS_ACLK] [get_bd_pins axis_interconnect_1/S_AXI_CTRL_ACLK] [get_bd_pins fifo_high_to_low/m_axis_aclk] [get_bd_pins fifo_low_to_high/s_axis_aclk] [get_bd_pins homenc_coprocessor_0/clk] [get_bd_pins homenc_coprocessor_1/clk] [get_bd_pins interconnect_to_csr/ACLK] [get_bd_pins interconnect_to_csr/M00_ACLK] [get_bd_pins interconnect_to_csr/M01_ACLK] [get_bd_pins interconnect_to_csr/M02_ACLK] [get_bd_pins interconnect_to_csr/M03_ACLK] [get_bd_pins interconnect_to_csr/M04_ACLK] [get_bd_pins interconnect_to_csr/M05_ACLK] [get_bd_pins interfacer_0/m00_axis_aclk] [get_bd_pins interfacer_0/s00_axi_aclk] [get_bd_pins interfacer_0/s00_axis_aclk] [get_bd_pins interfacer_1/m00_axis_aclk] [get_bd_pins interfacer_1/s00_axi_aclk] [get_bd_pins interfacer_1/s00_axis_aclk] [get_bd_pins mutex_0/S0_AXI_ACLK] [get_bd_pins mutex_0/S1_AXI_ACLK] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins PROCESSOR_POLY_0/clk] [get_bd_pins PROCESSOR_POLY_1/clk] [get_bd_pins axis_interconnect_0/ACLK] [get_bd_pins axis_interconnect_0/M00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/M01_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S_AXI_CTRL_ACLK] [get_bd_pins axis_interconnect_1/ACLK] [get_bd_pins axis_interconnect_1/M00_AXIS_ACLK] [get_bd_pins axis_interconnect_1/S00_AXIS_ACLK] [get_bd_pins axis_interconnect_1/S01_AXIS_ACLK] [get_bd_pins axis_interconnect_1/S_AXI_CTRL_ACLK] [get_bd_pins fifo_high_to_low/m_axis_aclk] [get_bd_pins fifo_low_to_high/s_axis_aclk] [get_bd_pins interconnect_to_csr/ACLK] [get_bd_pins interconnect_to_csr/M00_ACLK] [get_bd_pins interconnect_to_csr/M01_ACLK] [get_bd_pins interconnect_to_csr/M02_ACLK] [get_bd_pins interconnect_to_csr/M03_ACLK] [get_bd_pins interconnect_to_csr/M04_ACLK] [get_bd_pins interconnect_to_csr/M05_ACLK] [get_bd_pins interfacer_0/m00_axis_aclk] [get_bd_pins interfacer_0/s00_axi_aclk] [get_bd_pins interfacer_0/s00_axis_aclk] [get_bd_pins interfacer_1/m00_axis_aclk] [get_bd_pins interfacer_1/s00_axi_aclk] [get_bd_pins interfacer_1/s00_axis_aclk] [get_bd_pins mutex_0/S0_AXI_ACLK] [get_bd_pins mutex_0/S1_AXI_ACLK] [get_bd_pins rst_ps8_0_99M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_clk1 [get_bd_pins axi_dma_0/m_axi_mm2s_aclk] [get_bd_pins axi_dma_0/m_axi_s2mm_aclk] [get_bd_pins axi_dma_0/s_axi_lite_aclk] [get_bd_pins fifo_high_to_low/s_axis_aclk] [get_bd_pins fifo_low_to_high/m_axis_aclk] [get_bd_pins interconnect_to_csr/S00_ACLK] [get_bd_pins interconnect_to_dma/ACLK] [get_bd_pins interconnect_to_dma/M00_ACLK] [get_bd_pins interconnect_to_dma/S00_ACLK] [get_bd_pins interconnect_to_mem/ACLK] [get_bd_pins interconnect_to_mem/M00_ACLK] [get_bd_pins interconnect_to_mem/S00_ACLK] [get_bd_pins interconnect_to_mem/S01_ACLK] [get_bd_pins rst_ps8_0_299M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk1] [get_bd_pins zynq_ultra_ps_e_0/saxihpc0_fpd_aclk]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins rst_ps8_0_299M/ext_reset_in] [get_bd_pins rst_ps8_0_99M/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 

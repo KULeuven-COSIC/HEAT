@@ -14,16 +14,16 @@ update_ip_catalog
 
 # Add ip files
 set ips []
-foreach ip [glob $origin_dir/src/ip/*] {
+foreach ip [glob $origin_dir/src/hdl/ip_cores/*] {
     set ipname [file tail $ip]
     set filename "$ip/$ipname.xci"
     lappend ips [file normalize "$filename"]
     }
 add_files -norecurse -fileset [get_filesets sources_1] $ips
 
-# Add lift_shoup ip files
+# # Add lift_shoup ip files
 set ls_ips []
-foreach ip [glob $origin_dir/src/src_lift_shoup_ip/*] {
+foreach ip [glob $origin_dir/src/hdl/lift_shoup/ip_cores/*] {
     set ipname [file tail $ip]
     set filename "$ip/$ipname.xci"
     lappend ls_ips [file normalize "$filename"]
@@ -31,28 +31,60 @@ foreach ip [glob $origin_dir/src/src_lift_shoup_ip/*] {
     }
 add_files -norecurse -fileset [get_filesets sources_1] $ls_ips
 
-# Add lift_shoup rtl files
-set ls_rtls []
-foreach rtl [glob $origin_dir/src/src_lift_shoup_rtl/*] {
-    lappend ls_rtls [file normalize "$rtl"]
-    }
-add_files -norecurse -fileset [get_filesets sources_1] $ls_rtls
+set files [list \
+    [file normalize $origin_dir/src/hdl/top.v                                                                            ] \
+    [file normalize $origin_dir/src/hdl/ntt_rom.v                                                                        ] \
+    [file normalize $origin_dir/src/hdl/memory/memory_group.v                                                            ] \
+    [file normalize $origin_dir/src/hdl/memory/memory_block.v                                                            ] \
+    [file normalize $origin_dir/src/hdl/memory/memory.v                                                                  ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_add_convolution_control.v                     ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath                                      ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_ntt_control.v                                 ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part.v                                             ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor.v                                                  ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_top.v                                                        ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/address_dp.v                         ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/datapath_add_mod.v                   ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/datapath_coefficient_multiplier.v    ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/datapath_crt_rom.v                   ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/datapath_sub_mod.v                   ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/datapath.v                           ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/datapath_window_reduction60bit.v     ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/message_encoder.v                    ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/multiplexers.v                       ] \
+    [file normalize $origin_dir/src/hdl/rlwe_processor/rlwe_processor_part_datapath/top.v                                ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/adder_93bit.v                                                         ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/bram_addr_gen.v                                                       ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/din_buff.v                                                            ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/dout_buff.v                                                           ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/final_subtraction.v                                                   ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/ip_cores                                                              ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/lift2_sop.v                                                           ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/lift_big.v                                                            ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/lift_control_1core.v                                                  ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/lift_core.v                                                           ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/lift_eq2.v                                                            ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/lift_ext_cntrl.v                                                      ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/lift_small.v                                                          ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/mult_const_blift.v                                                    ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/scale_a_shares.v                                                      ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/sop_mod_qi.v                                                          ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/sum_fixedpt_blift.v                                                   ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/sum_fixedpt.v                                                         ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/v_x_q_mod_pi.v                                                        ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/windowed_reduction60bit_q_select.v                                    ] \
+    [file normalize $origin_dir/src/hdl/lift_shoup/windowed_reduction63bit_q_select.v                                    ] ]
 
-# Add rtl files
-set rtls []
-foreach rtl [glob $origin_dir/src/rtl/*] {
-    lappend rtls [file normalize "$rtl"]
-    }
-add_files -norecurse -fileset [get_filesets sources_1] $rtls
+add_files -norecurse -fileset [get_filesets sources_1] $files
 
 ###################################################################
 
 # Add lift_shoup testbenches files
-set ls_rtl_tb []
-foreach rtl [glob $origin_dir/src/src_lift_shoup_rtl_tb/*] {
-        lappend ls_rtl_tb [file normalize "$rtl"]
-    }
-add_files -norecurse -fileset [get_filesets sim_1] $ls_rtl_tb
+# set ls_rtl_tb []
+# foreach rtl [glob $origin_dir/src/src_lift_shoup_rtl_tb/*] {
+#         lappend ls_rtl_tb [file normalize "$rtl"]
+#     }
+# add_files -norecurse -fileset [get_filesets sim_1] $ls_rtl_tb
 
 ###################################################################
 
