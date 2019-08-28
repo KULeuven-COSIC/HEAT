@@ -18,5 +18,5 @@ open:
 clean:
 	rm -rf vivado.* vivado_* .Xil/ webtalk* -f
 	rm -rf project_hw project_ipcores ip_repo
-	find src/ip -mindepth 2 -not -name '*.xci' -not -name '*.xml' -exec rm -rf {} +
-	find src/src_lift_shoup_ip -mindepth 2 -not -name '*.xci' -not -name '*.xml' -exec rm -rf {} +
+	find src/hdl/ip_cores -mindepth 2 -not -name '*.xci' -not -name '*.xml' -exec rm -rf {} +
+	find src/hdl/lift_shoup/ip_cores -mindepth 2 -not -name '*.xci' -not -name '*.xml' -exec rm -rf {} +
