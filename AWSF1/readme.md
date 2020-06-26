@@ -18,7 +18,7 @@ Create a 2x large F1 instance, with *FPGA Developer AMI*.
 
 ### Step 2
 
-We use the `./aws_access/setup_access.sh` for keyless access and copying sw part of our app. That requires copying the AWS access key to `./aws_access/` directory. If you are not comfortable with this approach, you can scp the following files and folders into your F1 instance, and then login and continue with the following steps.
+We use the `./aws_access/setup_access.sh` for keyless access and copying sw part of our app. First modify the file contents with the target instance address. This script also requires you to copy the AWS access key to `./aws_access/` directory. If you are not comfortable with this approach, you can scp the following files and folders into your F1 instance, and then login and continue with the following steps.
 
 * `./aws_access/prepare_environment.sh`
 * `./software/`
