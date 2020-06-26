@@ -1,0 +1,24 @@
+#include<stdio.h>
+#define GENOMIC_STRING_LENGTH 16
+main()
+{
+	int i, j;
+	int r;
+
+	for(i=0; i<1024; i++)
+	{
+		printf("{");
+		for(j=0; j<GENOMIC_STRING_LENGTH; j++)
+		{
+			r = random() % 26;
+			if(j<GENOMIC_STRING_LENGTH-1)	
+			printf("'%c',", r+97);
+			else	
+			printf("'%c'},", r+97);
+
+		}	
+		printf("\n");
+	}	
+
+
+}

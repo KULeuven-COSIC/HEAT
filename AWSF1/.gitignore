@@ -1,0 +1,16 @@
+hardware/project_homenc
+hardware/.Xil
+hardware/vivado_*.str
+
+hardware/src/hdl/ip_cores/*/*
+!hardware/src/hdl/ip_cores/*/*.xci
+!hardware/src/hdl/ip_cores/*/*.xml
+
+hardware/src/hdl/lift_shoup/ip_cores/*/*
+!hardware/src/hdl/lift_shoup/ip_cores/*/*.xci
+!hardware/src/hdl/lift_shoup/ip_cores/*/*.xml
+
+software/application
+software_multicore/application_local
+
+source_me

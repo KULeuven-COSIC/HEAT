@@ -1,0 +1,6 @@
+ins 	addr1 	addr2 	porc 	mem 	mod
+0	0	0	0	0	0
+20	2	4	0	0	0
+0	0	0	0	0	0
+255	0	0	0	0	0
+

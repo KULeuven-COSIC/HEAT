@@ -1,0 +1,1722 @@
+bc = 4115
+bc = 4113
+bc = 4107
+bc = 4104
+bc = 4100
+bc = 4097
+bc = 4116
+bc = 4117
+bc = 4126
+bc = 4127
+bc = 4130
+bc = 4135
+bc = 4136
+p_full_length7=1509155612652322963894981558308021422531187968728956929
+p_full_length15=2354972527626621544037969637375657359066763510050539128341120789572702069763203552416233228539210426798141083538882561
+System initialized
+w: 950
+base: 1.006116
+Get data...
+Number of training samples: 17120
+Number of test samples: 8560
+Max data value: 23.000000
+Naive prediction: 
+MSE: 3.586879
+MAPE: 0.217221
+Linear regression...
+Coefficients:
+   0.1009
+   0.0786
+   0.0127
+   0.0335
+   0.0184
+   0.0136
+   0.0156
+   0.0244
+   0.0183
+  -0.0128
+  -0.0065
+   0.0067
+   0.0223
+  -0.0318
+   0.0083
+   0.0029
+  -0.0083
+   0.0081
+  -0.0280
+  -0.0214
+   0.0002
+   0.0034
+   0.0067
+  -0.0068
+   0.0114
+  -0.0163
+   0.0051
+   0.0192
+   0.0068
+  -0.0164
+  -0.0074
+  -0.0020
+   0.0031
+  -0.0095
+  -0.0159
+  -0.0186
+  -0.0124
+   0.0214
+  -0.0049
+   0.0056
+  -0.0290
+   0.0093
+   0.0194
+  -0.0024
+   0.0276
+   0.0428
+   0.0457
+   0.5469
+  -0.0052
+   0.1209
+   0.0926
+   0.6123
+
+MSE: 2.681738
+MAPE: 0.203696
+Train...
+Layer 0 is created.
+Layer 1 is created.
+Layer 2 is created.
+Layer 3 is created.
+Network structure: 
+Number of layers: 4
+
+Layer 0
+Modulus: 0
+Node 0
+Input 0: 0
+Input 1: 47
+Polynomial coefficients:   -0.0702   0.4358   0.7434  -0.0013  -0.0135  -0.0076
+Error: 2.78214
+Alpha: 1000
+
+Node 2
+Input 0: 4
+Input 1: 47
+Polynomial coefficients:   -0.2116   0.3164   0.9240   0.0110  -0.0159  -0.0209
+Error: 2.87696
+Alpha: 1000
+
+Node 4
+Input 0: 3
+Input 1: 47
+Polynomial coefficients:   -0.1897   0.3594   0.8697   0.0100  -0.0172  -0.0179
+Error: 2.8589
+Alpha: 1000
+
+Node 5
+Input 0: 1
+Input 1: 47
+Polynomial coefficients:   -0.1051   0.4221   0.7627   0.0061  -0.0162  -0.0116
+Error: 2.77959
+Alpha: 1000
+
+
+Layer 1
+Modulus: 0
+Node 1
+Input 0: 0
+Input 1: 2
+Polynomial coefficients:   -0.5423   0.5580   0.6248   0.0660  -0.0321  -0.0469
+Error: 2.74502
+Alpha: 100
+
+Node 2
+Input 0: 0
+Input 1: 5
+Polynomial coefficients:   -0.3865   0.4840   0.6486   0.0315  -0.0207  -0.0204
+Error: 2.73619
+Alpha: 100
+
+Node 3
+Input 0: 0
+Input 1: 4
+Polynomial coefficients:   -0.5143   0.5030   0.6721   0.0962  -0.0454  -0.0633
+Error: 2.74302
+Alpha: 100
+
+
+Layer 2
+Modulus: 0
+Node 0
+Input 0: 1
+Input 1: 2
+Polynomial coefficients:    0.0495   0.4980   0.4738  -0.0126   0.0041   0.0112
+Error: 2.72472
+Alpha: 1000
+
+Node 1
+Input 0: 2
+Input 1: 3
+Polynomial coefficients:    0.0509   0.4675   0.5037  -0.0216   0.0138   0.0106
+Error: 2.72469
+Alpha: 1000
+
+
+Layer 3
+Modulus: 0
+Node 0
+Input 0: 0
+Input 1: 1
+Polynomial coefficients:    0.0318   0.4902   0.4985  -0.0008  -0.0069   0.0086
+Error: 2.72383
+Alpha: 1000
+
+
+Input precs: 515, 0
+Poly precs: 165, 639
+Coefs: 1
+Cut point: 385
+MSE: 2.72383
+MAPE: 0.200773
+Layer 0
+Node 0
+Input 0: 0
+Input 1: 47
+1 * x^3660
+-1 * x^3960
+-1 * x^4047
+
+
+
+Node 2
+Input 0: 4
+Input 1: 47
+1 * x^3841
+-1 * x^3907
+-1 * x^4083
+
+
+1 * x^3462
+Node 4
+Input 0: 3
+Input 1: 47
+1 * x^3823
+-1 * x^3928
+-1 * x^4073
+
+
+
+Node 5
+Input 0: 1
+Input 1: 47
+1 * x^3727
+-1 * x^3955
+-1 * x^4052
+
+
+
+Layer 1
+Node 1
+Input 0: 0
+Input 1: 2
+1 * x^3996
+-1 * x^4000
+-1 * x^4019
+-1 * x^3650
+1 * x^3532
+1 * x^3594
+Node 2
+Input 0: 0
+Input 1: 5
+1 * x^3940
+-1 * x^3977
+-1 * x^4025
+-1 * x^3529
+1 * x^3460
+1 * x^3458
+Node 3
+Input 0: 0
+Input 1: 4
+1 * x^3987
+-1 * x^3983
+-1 * x^4031
+-1 * x^3712
+1 * x^3589
+1 * x^3643
+Layer 2
+Node 0
+Input 0: 1
+Input 1: 2
+-1 * x^3603
+-1 * x^3982
+-1 * x^3973
+
+
+
+Node 1
+Input 0: 2
+Input 1: 3
+-1 * x^3608
+-1 * x^3971
+-1 * x^3984
+1 * x^3467
+
+
+Layer 3
+Node 0
+Input 0: 0
+Input 1: 1
+-1 * x^3531
+-1 * x^3979
+-1 * x^3982
+
+
+
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.23671
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.48568 avg.: 9.48568
+Remaining time (in sec): 464.798
+Real output: 10.328
+Evaluation in the cipher mode: 10.0756
+Evaluation in the floating point mode: 10.5922
+Evaluation in the plain(poly) mode: 10.0756
+Evaluation in the approximation mode: 10.0756
+1/50 samples are done
+MSE(Enc): 0.0637188
+MAPE(Enc): 0.0244409
+MSE(Plain): 0.0637188
+MAPE(Plain): 0.0244409
+MAPE(Plain vs approx): 1.76303e-16
+Min diff: 1.76303e-16 at Sample 0
+Max diff: 1.76303e-16 at Sample 0
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19892
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44791 avg.: 9.46679
+Remaining time (in sec): 454.406
+Real output: 10.353
+Evaluation in the cipher mode: 9.31572
+Evaluation in the floating point mode: 9.38538
+Evaluation in the plain(poly) mode: 9.31572
+Evaluation in the approximation mode: 9.31572
+2/50 samples are done
+MSE(Enc): 0.56983
+MAPE(Enc): 0.0623159
+MSE(Plain): 0.56983
+MAPE(Plain): 0.0623159
+MAPE(Plain vs approx): 3.74177e-16
+Min diff: 1.76303e-16 at Sample 0
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18885
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4378 avg.: 9.45713
+Remaining time (in sec): 444.485
+Real output: 10.386
+Evaluation in the cipher mode: 9.24608
+Evaluation in the floating point mode: 9.32939
+Evaluation in the plain(poly) mode: 9.24608
+Evaluation in the approximation mode: 9.24608
+3/50 samples are done
+MSE(Enc): 0.813027
+MAPE(Enc): 0.0781291
+MSE(Plain): 0.813027
+MAPE(Plain): 0.0781291
+MAPE(Plain vs approx): 3.77531e-16
+Min diff: 1.76303e-16 at Sample 0
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18231
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43155 avg.: 9.45074
+Remaining time (in sec): 434.734
+Real output: 7.446
+Evaluation in the cipher mode: 8.45554
+Evaluation in the floating point mode: 8.63269
+Evaluation in the plain(poly) mode: 8.45554
+Evaluation in the approximation mode: 8.45554
+4/50 samples are done
+MSE(Enc): 0.864563
+MAPE(Enc): 0.0924922
+MSE(Plain): 0.864563
+MAPE(Plain): 0.0924922
+MAPE(Plain vs approx): 3.8819e-16
+Min diff: 1.76303e-16 at Sample 0
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.81326
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 10.0633 avg.: 9.57325
+Remaining time (in sec): 430.796
+Real output: 5.371
+Evaluation in the cipher mode: 6.22098
+Evaluation in the floating point mode: 6.35605
+Evaluation in the plain(poly) mode: 6.22098
+Evaluation in the approximation mode: 6.22098
+5/50 samples are done
+MSE(Enc): 0.836145
+MAPE(Enc): 0.105645
+MSE(Plain): 0.836145
+MAPE(Plain): 0.105645
+MAPE(Plain vs approx): 3.39106e-16
+Min diff: 1.42771e-16 at Sample 4
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18615
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43552 avg.: 9.55029
+Remaining time (in sec): 420.213
+Real output: 4.923
+Evaluation in the cipher mode: 5.13822
+Evaluation in the floating point mode: 5.11704
+Evaluation in the plain(poly) mode: 5.13822
+Evaluation in the approximation mode: 5.13822
+6/50 samples are done
+MSE(Enc): 0.704508
+MAPE(Enc): 0.0953235
+MSE(Plain): 0.704508
+MAPE(Plain): 0.0953235
+MAPE(Plain vs approx): 3.11398e-16
+Min diff: 1.42771e-16 at Sample 4
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.1899
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43961 avg.: 9.53448
+Remaining time (in sec): 409.983
+Real output: 6.483
+Evaluation in the cipher mode: 4.82992
+Evaluation in the floating point mode: 4.85661
+Evaluation in the plain(poly) mode: 4.82992
+Evaluation in the approximation mode: 4.82992
+7/50 samples are done
+MSE(Enc): 0.994245
+MAPE(Enc): 0.118133
+MSE(Plain): 0.994245
+MAPE(Plain): 0.118133
+MAPE(Plain vs approx): 3.19453e-16
+Min diff: 1.42771e-16 at Sample 4
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.28669
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.53677 avg.: 9.53477
+Remaining time (in sec): 400.46
+Real output: 7.583
+Evaluation in the cipher mode: 5.6841
+Evaluation in the floating point mode: 5.76717
+Evaluation in the plain(poly) mode: 5.6841
+Evaluation in the approximation mode: 5.6841
+8/50 samples are done
+MSE(Enc): 1.32069
+MAPE(Enc): 0.134668
+MSE(Plain): 1.32069
+MAPE(Plain): 0.134668
+MAPE(Plain vs approx): 3.18585e-16
+Min diff: 1.42771e-16 at Sample 4
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19822
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44843 avg.: 9.52517
+Remaining time (in sec): 390.532
+Real output: 5.955
+Evaluation in the cipher mode: 6.73419
+Evaluation in the floating point mode: 6.85714
+Evaluation in the plain(poly) mode: 6.73419
+Evaluation in the approximation mode: 6.73419
+9/50 samples are done
+MSE(Enc): 1.24141
+MAPE(Enc): 0.134243
+MSE(Plain): 1.24141
+MAPE(Plain): 0.134243
+MAPE(Plain vs approx): 3.27151e-16
+Min diff: 1.42771e-16 at Sample 4
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.1927
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44303 avg.: 9.51696
+Remaining time (in sec): 380.678
+Real output: 10.782
+Evaluation in the cipher mode: 6.25743
+Evaluation in the floating point mode: 6.21474
+Evaluation in the plain(poly) mode: 6.25743
+Evaluation in the approximation mode: 6.25743
+10/50 samples are done
+MSE(Enc): 3.16444
+MAPE(Enc): 0.162783
+MSE(Plain): 3.16444
+MAPE(Plain): 0.162783
+MAPE(Plain vs approx): 3.08629e-16
+Min diff: 1.4194e-16 at Sample 9
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.1873
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43737 avg.: 9.50972
+Remaining time (in sec): 370.879
+Real output: 8.753
+Evaluation in the cipher mode: 8.52911
+Evaluation in the floating point mode: 8.80015
+Evaluation in the plain(poly) mode: 8.52911
+Evaluation in the approximation mode: 8.52911
+11/50 samples are done
+MSE(Enc): 2.88132
+MAPE(Enc): 0.15031
+MSE(Plain): 2.88132
+MAPE(Plain): 0.15031
+MAPE(Plain vs approx): 2.80572e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19497
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44497 avg.: 9.50433
+Remaining time (in sec): 361.164
+Real output: 10.202
+Evaluation in the cipher mode: 7.5021
+Evaluation in the floating point mode: 7.73013
+Evaluation in the plain(poly) mode: 7.5021
+Evaluation in the approximation mode: 7.5021
+12/50 samples are done
+MSE(Enc): 3.24867
+MAPE(Enc): 0.159838
+MSE(Plain): 3.24867
+MAPE(Plain): 0.159838
+MAPE(Plain vs approx): 2.67057e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18916
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43935 avg.: 9.49933
+Remaining time (in sec): 351.475
+Real output: 7.666
+Evaluation in the cipher mode: 8.31505
+Evaluation in the floating point mode: 8.55899
+Evaluation in the plain(poly) mode: 8.31505
+Evaluation in the approximation mode: 8.31505
+13/50 samples are done
+MSE(Enc): 3.03117
+MAPE(Enc): 0.154055
+MSE(Plain): 3.03117
+MAPE(Plain): 0.154055
+MAPE(Plain vs approx): 2.79381e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18451
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43533 avg.: 9.49476
+Remaining time (in sec): 341.811
+Real output: 5.783
+Evaluation in the cipher mode: 6.81887
+Evaluation in the floating point mode: 6.94919
+Evaluation in the plain(poly) mode: 6.81887
+Evaluation in the approximation mode: 6.81887
+14/50 samples are done
+MSE(Enc): 2.89131
+MAPE(Enc): 0.155846
+MSE(Plain): 2.89131
+MAPE(Plain): 0.155846
+MAPE(Plain vs approx): 2.87336e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18188
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43265 avg.: 9.49062
+Remaining time (in sec): 332.172
+Real output: 6.843
+Evaluation in the cipher mode: 5.58274
+Evaluation in the floating point mode: 5.59958
+Evaluation in the plain(poly) mode: 5.58274
+Evaluation in the approximation mode: 5.58274
+15/50 samples are done
+MSE(Enc): 2.80444
+MAPE(Enc): 0.157734
+MSE(Plain): 2.80444
+MAPE(Plain): 0.157734
+MAPE(Plain vs approx): 2.78787e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.20256
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.45318 avg.: 9.48828
+Remaining time (in sec): 322.601
+Real output: 5.735
+Evaluation in the cipher mode: 5.82542
+Evaluation in the floating point mode: 5.92475
+Evaluation in the plain(poly) mode: 5.82542
+Evaluation in the approximation mode: 5.82542
+16/50 samples are done
+MSE(Enc): 2.62967
+MAPE(Enc): 0.148861
+MSE(Plain): 2.62967
+MAPE(Plain): 0.148861
+MAPE(Plain vs approx): 2.80421e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18958
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4404 avg.: 9.48546
+Remaining time (in sec): 313.02
+Real output: 3.412
+Evaluation in the cipher mode: 4.98125
+Evaluation in the floating point mode: 5.05703
+Evaluation in the plain(poly) mode: 4.98125
+Evaluation in the approximation mode: 4.98125
+17/50 samples are done
+MSE(Enc): 2.61984
+MAPE(Enc): 0.167159
+MSE(Plain): 2.61984
+MAPE(Plain): 0.167159
+MAPE(Plain vs approx): 2.84902e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18676
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43879 avg.: 9.48287
+Remaining time (in sec): 303.452
+Real output: 2.461
+Evaluation in the cipher mode: 3.33555
+Evaluation in the floating point mode: 3.33009
+Evaluation in the plain(poly) mode: 3.33555
+Evaluation in the approximation mode: 3.33555
+18/50 samples are done
+MSE(Enc): 2.51678
+MAPE(Enc): 0.177614
+MSE(Plain): 2.51678
+MAPE(Plain): 0.177614
+MAPE(Plain vs approx): 2.91264e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.21252
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.46398 avg.: 9.48187
+Remaining time (in sec): 293.938
+Real output: 2.544
+Evaluation in the cipher mode: 2.67943
+Evaluation in the floating point mode: 2.61851
+Evaluation in the plain(poly) mode: 2.67943
+Evaluation in the approximation mode: 2.67943
+19/50 samples are done
+MSE(Enc): 2.38529
+MAPE(Enc): 0.171068
+MSE(Plain): 2.38529
+MAPE(Plain): 0.171068
+MAPE(Plain vs approx): 2.93381e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.2035
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.45528 avg.: 9.48054
+Remaining time (in sec): 284.416
+Real output: 2.265
+Evaluation in the cipher mode: 2.81604
+Evaluation in the floating point mode: 2.75437
+Evaluation in the plain(poly) mode: 2.81604
+Evaluation in the approximation mode: 2.81604
+20/50 samples are done
+MSE(Enc): 2.2812
+MAPE(Enc): 0.174679
+MSE(Plain): 2.2812
+MAPE(Plain): 0.174679
+MAPE(Plain vs approx): 3.02367e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.20007
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.45136 avg.: 9.47915
+Remaining time (in sec): 274.895
+Real output: 2.309
+Evaluation in the cipher mode: 2.6702
+Evaluation in the floating point mode: 2.59273
+Evaluation in the plain(poly) mode: 2.6702
+Evaluation in the approximation mode: 2.6702
+21/50 samples are done
+MSE(Enc): 2.17879
+MAPE(Enc): 0.17381
+MSE(Plain): 2.17879
+MAPE(Plain): 0.17381
+MAPE(Plain vs approx): 3.03808e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.2094
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.46147 avg.: 9.47835
+Remaining time (in sec): 265.394
+Real output: 2.323
+Evaluation in the cipher mode: 3.09446
+Evaluation in the floating point mode: 2.95943
+Evaluation in the plain(poly) mode: 3.09446
+Evaluation in the approximation mode: 3.09446
+22/50 samples are done
+MSE(Enc): 2.1068
+MAPE(Enc): 0.181005
+MSE(Plain): 2.1068
+MAPE(Plain): 0.181005
+MAPE(Plain vs approx): 3.09568e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.20951
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4609 avg.: 9.47759
+Remaining time (in sec): 255.895
+Real output: 2.286
+Evaluation in the cipher mode: 3.41824
+Evaluation in the floating point mode: 3.24771
+Evaluation in the plain(poly) mode: 3.41824
+Evaluation in the approximation mode: 3.41824
+23/50 samples are done
+MSE(Enc): 2.07094
+MAPE(Enc): 0.194669
+MSE(Plain): 2.07094
+MAPE(Plain): 0.194669
+MAPE(Plain vs approx): 3.07406e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.20342
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4548 avg.: 9.47664
+Remaining time (in sec): 246.393
+Real output: 2.37
+Evaluation in the cipher mode: 3.39242
+Evaluation in the floating point mode: 3.19475
+Evaluation in the plain(poly) mode: 3.39242
+Evaluation in the approximation mode: 3.39242
+24/50 samples are done
+MSE(Enc): 2.02821
+MAPE(Enc): 0.204533
+MSE(Plain): 2.02821
+MAPE(Plain): 0.204533
+MAPE(Plain vs approx): 3.1096e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19335
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44438 avg.: 9.47535
+Remaining time (in sec): 236.884
+Real output: 2.252
+Evaluation in the cipher mode: 3.55689
+Evaluation in the floating point mode: 3.34285
+Evaluation in the plain(poly) mode: 3.55689
+Evaluation in the approximation mode: 3.55689
+25/50 samples are done
+MSE(Enc): 2.01519
+MAPE(Enc): 0.219529
+MSE(Plain): 2.01519
+MAPE(Plain): 0.219529
+MAPE(Plain vs approx): 3.03516e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19641
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44788 avg.: 9.4743
+Remaining time (in sec): 227.383
+Real output: 2.304
+Evaluation in the cipher mode: 3.3559
+Evaluation in the floating point mode: 3.14439
+Evaluation in the plain(poly) mode: 3.3559
+Evaluation in the approximation mode: 3.3559
+26/50 samples are done
+MSE(Enc): 1.98024
+MAPE(Enc): 0.228646
+MSE(Plain): 1.98024
+MAPE(Plain): 0.228646
+MAPE(Plain vs approx): 3.07111e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19725
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44897 avg.: 9.47336
+Remaining time (in sec): 217.887
+Real output: 3.411
+Evaluation in the cipher mode: 3.2682
+Evaluation in the floating point mode: 3.08866
+Evaluation in the plain(poly) mode: 3.2682
+Evaluation in the approximation mode: 3.2682
+27/50 samples are done
+MSE(Enc): 1.90765
+MAPE(Enc): 0.221728
+MSE(Plain): 1.90765
+MAPE(Plain): 0.221728
+MAPE(Plain vs approx): 3.15868e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.20226
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4538 avg.: 9.47266
+Remaining time (in sec): 208.398
+Real output: 5.528
+Evaluation in the cipher mode: 4.27423
+Evaluation in the floating point mode: 4.15392
+Evaluation in the plain(poly) mode: 4.27423
+Evaluation in the approximation mode: 4.27423
+28/50 samples are done
+MSE(Enc): 1.89566
+MAPE(Enc): 0.221909
+MSE(Plain): 1.89566
+MAPE(Plain): 0.221909
+MAPE(Plain vs approx): 3.12008e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.1982
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.45028 avg.: 9.47189
+Remaining time (in sec): 198.91
+Real output: 4.077
+Evaluation in the cipher mode: 5.8146
+Evaluation in the floating point mode: 5.76493
+Evaluation in the plain(poly) mode: 5.8146
+Evaluation in the approximation mode: 5.8146
+29/50 samples are done
+MSE(Enc): 1.93441
+MAPE(Enc): 0.228954
+MSE(Plain): 1.93441
+MAPE(Plain): 0.228954
+MAPE(Plain vs approx): 3.11784e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19912
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.45208 avg.: 9.47123
+Remaining time (in sec): 189.425
+Real output: 5.977
+Evaluation in the cipher mode: 5.13181
+Evaluation in the floating point mode: 4.94649
+Evaluation in the plain(poly) mode: 5.13181
+Evaluation in the approximation mode: 5.13181
+30/50 samples are done
+MSE(Enc): 1.89374
+MAPE(Enc): 0.226035
+MSE(Plain): 1.89374
+MAPE(Plain): 0.226035
+MAPE(Plain vs approx): 3.0716e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.196
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44812 avg.: 9.47048
+Remaining time (in sec): 179.939
+Real output: 6.145
+Evaluation in the cipher mode: 6.27091
+Evaluation in the floating point mode: 6.16567
+Evaluation in the plain(poly) mode: 6.27091
+Evaluation in the approximation mode: 6.27091
+31/50 samples are done
+MSE(Enc): 1.83316
+MAPE(Enc): 0.219405
+MSE(Plain): 1.83316
+MAPE(Plain): 0.219405
+MAPE(Plain vs approx): 3.10958e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19752
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44909 avg.: 9.46981
+Remaining time (in sec): 170.457
+Real output: 6.029
+Evaluation in the cipher mode: 6.3604
+Evaluation in the floating point mode: 6.30528
+Evaluation in the plain(poly) mode: 6.3604
+Evaluation in the approximation mode: 6.3604
+32/50 samples are done
+MSE(Enc): 1.77931
+MAPE(Enc): 0.214266
+MSE(Plain): 1.77931
+MAPE(Plain): 0.214266
+MAPE(Plain vs approx): 3.09968e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19456
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44665 avg.: 9.46911
+Remaining time (in sec): 160.975
+Real output: 3.418
+Evaluation in the cipher mode: 6.67096
+Evaluation in the floating point mode: 6.54402
+Evaluation in the plain(poly) mode: 6.67096
+Evaluation in the approximation mode: 6.67096
+33/50 samples are done
+MSE(Enc): 2.04605
+MAPE(Enc): 0.236613
+MSE(Plain): 2.04605
+MAPE(Plain): 0.236613
+MAPE(Plain vs approx): 3.12679e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19074
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44321 avg.: 9.46835
+Remaining time (in sec): 151.494
+Real output: 5.508
+Evaluation in the cipher mode: 5.38476
+Evaluation in the floating point mode: 4.74643
+Evaluation in the plain(poly) mode: 5.38476
+Evaluation in the approximation mode: 5.38476
+34/50 samples are done
+MSE(Enc): 1.98632
+MAPE(Enc): 0.230312
+MSE(Plain): 1.98632
+MAPE(Plain): 0.230312
+MAPE(Plain vs approx): 3.03483e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.20125
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.45341 avg.: 9.46792
+Remaining time (in sec): 142.019
+Real output: 7.993
+Evaluation in the cipher mode: 7.24449
+Evaluation in the floating point mode: 6.68394
+Evaluation in the plain(poly) mode: 7.24449
+Evaluation in the approximation mode: 7.24449
+35/50 samples are done
+MSE(Enc): 1.94557
+MAPE(Enc): 0.226407
+MSE(Plain): 1.94557
+MAPE(Plain): 0.226407
+MAPE(Plain vs approx): 2.98315e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.20539
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.45749 avg.: 9.46763
+Remaining time (in sec): 132.547
+Real output: 7.161
+Evaluation in the cipher mode: 8.2619
+Evaluation in the floating point mode: 8.11814
+Evaluation in the plain(poly) mode: 8.2619
+Evaluation in the approximation mode: 8.2619
+36/50 samples are done
+MSE(Enc): 1.92519
+MAPE(Enc): 0.224389
+MSE(Plain): 1.92519
+MAPE(Plain): 0.224389
+MAPE(Plain vs approx): 2.96e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.21169
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4641 avg.: 9.46754
+Remaining time (in sec): 123.078
+Real output: 8.815
+Evaluation in the cipher mode: 8.02094
+Evaluation in the floating point mode: 7.65354
+Evaluation in the plain(poly) mode: 8.02094
+Evaluation in the approximation mode: 8.02094
+37/50 samples are done
+MSE(Enc): 1.8902
+MAPE(Enc): 0.220759
+MSE(Plain): 1.8902
+MAPE(Plain): 0.220759
+MAPE(Plain vs approx): 2.93986e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18918
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4414 avg.: 9.46685
+Remaining time (in sec): 113.602
+Real output: 10.792
+Evaluation in the cipher mode: 9.34757
+Evaluation in the floating point mode: 8.95412
+Evaluation in the plain(poly) mode: 9.34757
+Evaluation in the approximation mode: 9.34757
+38/50 samples are done
+MSE(Enc): 1.89537
+MAPE(Enc): 0.218471
+MSE(Plain): 1.89537
+MAPE(Plain): 0.218471
+MAPE(Plain vs approx): 2.96251e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.1908
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.4433 avg.: 9.46625
+Remaining time (in sec): 104.129
+Real output: 6.874
+Evaluation in the cipher mode: 9.61627
+Evaluation in the floating point mode: 9.83899
+Evaluation in the plain(poly) mode: 9.61627
+Evaluation in the approximation mode: 9.61627
+39/50 samples are done
+MSE(Enc): 2.03959
+MAPE(Enc): 0.223099
+MSE(Plain): 2.03959
+MAPE(Plain): 0.223099
+MAPE(Plain vs approx): 2.93392e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18843
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44067 avg.: 9.46561
+Remaining time (in sec): 94.6561
+Real output: 6.008
+Evaluation in the cipher mode: 7.89303
+Evaluation in the floating point mode: 7.57762
+Evaluation in the plain(poly) mode: 7.89303
+Evaluation in the approximation mode: 7.89303
+40/50 samples are done
+MSE(Enc): 2.07743
+MAPE(Enc): 0.225365
+MSE(Plain): 2.07743
+MAPE(Plain): 0.225365
+MAPE(Plain vs approx): 2.91683e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19278
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44475 avg.: 9.4651
+Remaining time (in sec): 85.1859
+Real output: 6.926
+Evaluation in the cipher mode: 7.56602
+Evaluation in the floating point mode: 7.0485
+Evaluation in the plain(poly) mode: 7.56602
+Evaluation in the approximation mode: 7.56602
+41/50 samples are done
+MSE(Enc): 2.03675
+MAPE(Enc): 0.222122
+MSE(Plain): 2.03675
+MAPE(Plain): 0.222122
+MAPE(Plain vs approx): 2.87432e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18891
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44157 avg.: 9.46454
+Remaining time (in sec): 75.7163
+Real output: 7.003
+Evaluation in the cipher mode: 7.75673
+Evaluation in the floating point mode: 7.49945
+Evaluation in the plain(poly) mode: 7.75673
+Evaluation in the approximation mode: 7.75673
+42/50 samples are done
+MSE(Enc): 2.00179
+MAPE(Enc): 0.219396
+MSE(Plain): 2.00179
+MAPE(Plain): 0.219396
+MAPE(Plain vs approx): 2.83315e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18582
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.43926 avg.: 9.46395
+Remaining time (in sec): 66.2476
+Real output: 4.34
+Evaluation in the cipher mode: 7.33667
+Evaluation in the floating point mode: 7.18968
+Evaluation in the plain(poly) mode: 7.33667
+Evaluation in the approximation mode: 7.33667
+43/50 samples are done
+MSE(Enc): 2.16407
+MAPE(Enc): 0.230351
+MSE(Plain): 2.16407
+MAPE(Plain): 0.230351
+MAPE(Plain vs approx): 2.85172e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18782
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44052 avg.: 9.46342
+Remaining time (in sec): 56.7805
+Real output: 3.629
+Evaluation in the cipher mode: 5.83554
+Evaluation in the floating point mode: 5.36599
+Evaluation in the plain(poly) mode: 5.83554
+Evaluation in the approximation mode: 5.83554
+44/50 samples are done
+MSE(Enc): 2.22554
+MAPE(Enc): 0.238935
+MSE(Plain): 2.22554
+MAPE(Plain): 0.238935
+MAPE(Plain vs approx): 2.8215e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19387
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44695 avg.: 9.46305
+Remaining time (in sec): 47.3153
+Real output: 3.225
+Evaluation in the cipher mode: 5.52424
+Evaluation in the floating point mode: 4.95032
+Evaluation in the plain(poly) mode: 5.52424
+Evaluation in the approximation mode: 5.52424
+45/50 samples are done
+MSE(Enc): 2.29356
+MAPE(Enc): 0.249469
+MSE(Plain): 2.29356
+MAPE(Plain): 0.249469
+MAPE(Plain vs approx): 2.83026e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19077
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44354 avg.: 9.46263
+Remaining time (in sec): 37.8505
+Real output: 8.001
+Evaluation in the cipher mode: 5.65428
+Evaluation in the floating point mode: 4.81054
+Evaluation in the plain(poly) mode: 5.65428
+Evaluation in the approximation mode: 5.65428
+46/50 samples are done
+MSE(Enc): 2.36342
+MAPE(Enc): 0.250421
+MSE(Plain): 2.36342
+MAPE(Plain): 0.250421
+MAPE(Plain vs approx): 2.76873e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.192
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44507 avg.: 9.46225
+Remaining time (in sec): 28.3868
+Real output: 4.975
+Evaluation in the cipher mode: 9.21641
+Evaluation in the floating point mode: 8.60275
+Evaluation in the plain(poly) mode: 9.21641
+Evaluation in the approximation mode: 9.21641
+47/50 samples are done
+MSE(Enc): 2.69589
+MAPE(Enc): 0.263233
+MSE(Plain): 2.69589
+MAPE(Plain): 0.263233
+MAPE(Plain vs approx): 2.75083e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19063
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44407 avg.: 9.46187
+Remaining time (in sec): 18.9237
+Real output: 6.314
+Evaluation in the cipher mode: 7.31445
+Evaluation in the floating point mode: 6.48136
+Evaluation in the plain(poly) mode: 7.31445
+Evaluation in the approximation mode: 7.31445
+48/50 samples are done
+MSE(Enc): 2.66058
+MAPE(Enc): 0.26105
+MSE(Plain): 2.66058
+MAPE(Plain): 0.26105
+MAPE(Plain vs approx): 2.71882e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.19142
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44448 avg.: 9.46152
+Remaining time (in sec): 9.46152
+Real output: 8.412
+Evaluation in the cipher mode: 7.56196
+Evaluation in the floating point mode: 7.20587
+Evaluation in the plain(poly) mode: 7.56196
+Evaluation in the approximation mode: 7.56196
+49/50 samples are done
+MSE(Enc): 2.62103
+MAPE(Enc): 0.257784
+MSE(Plain): 2.62103
+MAPE(Plain): 0.257784
+MAPE(Plain vs approx): 2.71127e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
+file name keys/sk
+file name keys/rlk0_0
+file name keys/rlk0_1
+file name keys/rlk1_0
+file name keys/rlk1_1
+file name keys/pk0
+file name keys/pk1
+
+Time after one sample/one module (in sec): 9.18681
+Evaluate layer 0.
+Evaluate layer 1.
+Evaluate layer 2.
+Evaluate layer 3.
+w-NAF: 950
+Time after one sample (in sec): 9.44017 avg.: 9.46109
+Remaining time (in sec): 0
+Real output: 7.128
+Evaluation in the cipher mode: 8.61113
+Evaluation in the floating point mode: 8.48567
+Evaluation in the plain(poly) mode: 8.61113
+Evaluation in the approximation mode: 8.61113
+50/50 samples are done
+MSE(Enc): 2.6126
+MAPE(Enc): 0.25679
+MSE(Plain): 2.6126
+MAPE(Plain): 0.25679
+MAPE(Plain vs approx): 2.6983e-16
+Min diff: 0 at Sample 10
+Max diff: 5.72051e-16 at Sample 1
